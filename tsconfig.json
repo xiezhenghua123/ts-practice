@@ -1,0 +1,15 @@
+{
+ "include": [
+  "src/**/*",
+  "index.ts"
+ ],
+ "exclude": [
+  "node_modules",
+ ],
+ "compilerOptions": {
+  "target": "es5",
+  "module": "commonjs",
+  "outDir": "dist",
+  "strict": true,
+ }
+}
