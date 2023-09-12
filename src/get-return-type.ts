@@ -9,3 +9,5 @@ const fn = (v: boolean,a:string) => {
 type MyReturnType<T extends Function> = T extends (...arg: any) => infer p ? p :never
 
 type a = MyReturnType<typeof fn>
+
+export {}
