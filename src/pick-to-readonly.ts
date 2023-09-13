@@ -10,7 +10,7 @@ const todo: MyReadonly2<Todo, 'title' | 'description'> = {
   completed: false
 }
 
-type MyReadonly2<T, K extends keyof T> = {
+type MyReadonly2<T, K extends keyof T = keyof T> = {
   readonly [R in K]: T[R]
 } & {
   [R in keyof T as R extends K ? never : R]: T[R]
