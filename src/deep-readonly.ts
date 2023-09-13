@@ -15,9 +15,8 @@ type Expected = {
  readonly y: 'hey' 
 }
 
-// keyof T extends never 巧妙的判断了是否为对象
-type DeepReadonly<T> = keyof T extends never ? T : {
- readonly [K in keyof T]: DeepReadonly<T[K]>
+type DeepReadonly<T> = {
+ readonly [K in keyof T]: keyof T[K] extends never ? T[K] : DeepReadonly<T[K]>
 }
 
 type Todo = DeepReadonly<X> // should be same as `Expected`

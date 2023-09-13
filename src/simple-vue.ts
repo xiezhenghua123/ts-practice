@@ -1,5 +1,5 @@
 type SimpleVueProps<D, M, C> = {
-  data: () => D
+  data: (this: void) => D
   computed: C & ThisType<D>
   methods: M & ThisType<D & GetComputed<C> & M>
 }
