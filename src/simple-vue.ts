@@ -29,3 +29,5 @@ const instance = SimpleVue({
     }
   }
 })
+
+export {}
