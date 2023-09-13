@@ -2,6 +2,7 @@ interface Todo {
  readonly title: string
  readonly description: string
  completed: boolean
+ readonly abc: boolean
 }
 
 
@@ -14,5 +15,6 @@ type equal<X, Y> = (<T>() => T extends X ? 1 : 2 ) extends <T>() => T extends Y 
 type GetReadonlyKeys<T> =  { [K in keyof T]: equal<{ readonly [P in K]: T[K] }, { [P in K]: T[K] }> extends true ? K : never }[keyof T]
 
 type Keys = GetReadonlyKeys<Todo> // expected to be "title" | "description"
+
 
 export {}
