@@ -12,12 +12,12 @@ type Expected = {
    readonly a: 1
    readonly b: 'hi'
  }
- readonly y: 'hey' 
+ readonly y: 'hey'
+ readonly z: Date 
 }
 
-type DeepReadonly<T> = {
- readonly [K in keyof T]: keyof T[K] extends never ? T[K] : DeepReadonly<T[K]>
-}
+type params = string | boolean | number | symbol | Function | Promise<any> | Date
+type DeepReadonly<T> = T extends params ? T : { readonly [k in keyof T]: DeepReadonly<T[k]> }
 
 type Todo = DeepReadonly<X> // should be same as `Expected`
 
